@@ -1,0 +1,2 @@
+debian/bin/shibecoind usr/bin
+src/shibecoind usr/lib/shibecoin

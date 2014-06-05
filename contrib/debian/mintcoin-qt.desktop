@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=ShibeCoin
+Comment=ShibeCoin P2P Cryptocurrency
+Comment[fr]=ShibeCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=ShibeCoin, eşten eşe kriptografik sanal para birimi
+Comment[es]=ShibeCoin, una criptomoneda P2P
+Exec=/usr/bin/shibecoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/bitcoin80.xpm
+MimeType=x-scheme-handler/shibecoin;
+Categories=Office;
