@@ -1,7 +1,8 @@
 **ShibeCoin (SHIBE)**
-join #shibecoin for more informations
+IRC: #shibeon (freenode) 
 
-
+Forums: http://www.shibecointalk.org/
+Reddit: http://www.reddit.com/r/ShibecoinOfficial/
 
 algo: scrypt
 PoW cutoff @ block 5k.
