@@ -1,6 +1,7 @@
 **ShibeCoin (SHIBE)**
 IRC: #shibeon (freenode) 
 
+Website: http://www.shibecoin.io/
 Forums: http://www.shibecointalk.org/
 Reddit: http://www.reddit.com/r/ShibecoinOfficial/
 
