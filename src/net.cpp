@@ -78,6 +78,7 @@ static CSemaphore *semOutbound = NULL;
 
 void AddOneShot(string strDest)
 {
+    printf("ONESHOT: %s\n", strDest.c_str());
     LOCK(cs_vOneShots);
     vOneShots.push_back(strDest);
 }
@@ -1153,8 +1154,12 @@ void MapPort()
 // Each pair gives a source name and a seed name.
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
-static const char *strDNSSeed[][2] = {
-    {"192.227.251.74", "192.227.251.74"},
+static const char *strDNSSeed[][3] = {
+    {
+        "54.187.81.241",  // dfletcher
+        "178.79.171.188", // serversides
+        "192.227.251.74"  // original
+    },
 };
 
 void ThreadDNSAddressSeed(void* parg)
@@ -1189,11 +1194,11 @@ void ThreadDNSAddressSeed2(void* parg)
 
         for (unsigned int seed_idx = 0; seed_idx < ARRAYLEN(strDNSSeed); seed_idx++) {
             if (HaveNameProxy()) {
-                AddOneShot(strDNSSeed[seed_idx][1]);
+                AddOneShot(strDNSSeed[seed_idx][seed_idx]);
             } else {
                 vector<CNetAddr> vaddr;
                 vector<CAddress> vAdd;
-                if (LookupHost(strDNSSeed[seed_idx][1], vaddr))
+                if (LookupHost(strDNSSeed[seed_idx][seed_idx], vaddr))
                 {
                     BOOST_FOREACH(CNetAddr& ip, vaddr)
                     {
@@ -1204,7 +1209,7 @@ void ThreadDNSAddressSeed2(void* parg)
                         found++;
                     }
                 }
-                addrman.Add(vAdd, CNetAddr(strDNSSeed[seed_idx][0], true));
+                addrman.Add(vAdd, CNetAddr(strDNSSeed[seed_idx][seed_idx], true));
             }
         }
     }
