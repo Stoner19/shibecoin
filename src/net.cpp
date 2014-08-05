@@ -1189,7 +1189,7 @@ void ThreadDNSAddressSeed2(void* parg)
     {
         printf("Loading addresses from DNS seeds (could take a while)\n");
 
-        for (unsigned int seed_idx = 0; seed_idx < 3; seed_idx++) {
+        for (unsigned int seed_idx = 0; seed_idx < ARRAYLEN(strDNSSeed); seed_idx++) {
             printf("SEED: %s\n", strDNSSeed[seed_idx]);
             if (HaveNameProxy()) {
                 AddOneShot(strDNSSeed[seed_idx]);
